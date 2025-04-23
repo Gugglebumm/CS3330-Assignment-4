@@ -189,7 +189,7 @@ public class Game {
     }
 
     /**
-     * Prints the Game's Grid
+     * Prints the Game's Grid.
      */
     @Override
     public String toString() {
