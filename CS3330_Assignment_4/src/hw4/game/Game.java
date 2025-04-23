@@ -23,7 +23,7 @@ public class Game {
      * a Grid object as an area to play.
      * Initializes the Game's Grid with a pre-made
      * Grid object
-     * @param grid The received Grid 
+     * @param grid The received Grid .
      */
     public Game(Grid grid) {
         this.grid = grid;
