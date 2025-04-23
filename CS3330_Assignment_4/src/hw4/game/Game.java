@@ -17,10 +17,27 @@ public class Game {
     private Grid grid;
     private Random rand = new Random();
 
+    /**
+     * A constructor for the Game object 
+     * which acts as the game itself, having
+     * a Grid object as an area to play.
+     * Initializes the Game's Grid with a pre-made
+     * Grid object
+     * @param grid The received Grid 
+     */
     public Game(Grid grid) {
         this.grid = grid;
     }
 
+    /**
+     * A constructor for the Game object 
+     * which acts as the game itself, having
+     * a Grid object as an area to play.
+     * Initializes the Game's grid by making
+     * one with a size between 3 and 7.
+     * @param size The received size the Grid
+     * will be.
+     */
     public Game(int size) {
         if (size >= 3 && size <= 7) {
             this.grid = createRandomGrid(size);
@@ -29,14 +46,34 @@ public class Game {
         }
     }
 
+    /**
+     * Retrieves the Game's Grid 
+     * @return The Grid
+     */
     public Grid getGrid() {
         return grid;
     }
 
+    /**
+     * Receives a Grid object to be assigned
+     * to the Game's Grid.
+     * @param grid The Grid object to be assigned
+     * to the Game's Grid.
+     */
     public void setGrid(Grid grid) {
         this.grid = grid;
     }
 
+    /**
+     * Creates a grid from a received size,
+     * making sure every cell in the grid has
+     * at least one APERTURE and the exit is
+     * on the leftmost side of the grid.
+     * @param size The received size the Grid
+     * will be.
+     * @return The Grid with its newly created
+     * ArrayList of Rows of Cells.
+     */
     public Grid createRandomGrid(int size) {
         if (size < 3 || size > 7) return null;
 
@@ -88,6 +125,17 @@ public class Game {
         return new Grid(rows);
     }
 
+    /**
+     * Receives a Player of the Game and the
+     * move the player is making. Moves the player
+     * if there is an APERTURE in the direction
+     * of the player's received move.
+     * @param move The player's move
+     * @param player The object which moves through
+     * the Game's Grid
+     * @return True if the move is valid, or false
+     * if it is invalid.
+     */
     public boolean play(Movement move, Player player) {
         if (move == null || player == null || grid == null) return false;
 
@@ -140,6 +188,9 @@ public class Game {
         return false;
     }
 
+    /**
+     * Prints the Game's Grid
+     */
     @Override
     public String toString() {
         return "Game [grid=" + grid + "]";
